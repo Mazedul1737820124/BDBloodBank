@@ -44,6 +44,7 @@
     <string name="remaining">Remaining</string>
     <string name="set_last_donation">Set last donation</string>
     <string name="blood_group">Blood Group :</string>
+    <string name="donor_list">Donor List</string>
 
     <string-array name="district_names">
         <item>Select district</item>

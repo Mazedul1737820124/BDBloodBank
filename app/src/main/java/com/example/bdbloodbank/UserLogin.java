@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.InputType;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -32,6 +31,7 @@ public class UserLogin extends AppCompatActivity {
     String logPhone ;
     String logPassword;
 
+    static int counter = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,8 +121,11 @@ public class UserLogin extends AppCompatActivity {
         }
         else{
 
-            message.setText("The email or password you entered is incorrect. Please try again");
-            message.setTextColor(Color.RED);
+            counter = counter + 1;
+            if(counter == 2) {
+                message.setText("The email or password you entered is incorrect. Please try again");
+                message.setTextColor(Color.RED);
+            }
 
         }
 
