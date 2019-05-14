@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -63,41 +64,4 @@ public class SearchingList extends AppCompatActivity {
         });
     }
 
-    public void search() {
-
-//        database = FirebaseDatabase.getInstance();
-//        databaseReference = database.getReference();
-//        databaseReference.addValueEventListener(new ValueEventListener(){
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot){
-//                String name = null;
-//                String address = null;
-//                String blood = null;
-//                String available = "Available";
-//                String ready = "Ready to donate";
-//                //listView = findViewById(R.id.donorListShow);
-//                CustomListView customListView;
-//
-//                for (DataSnapshot parent : dataSnapshot.getChildren()) {
-//                    for (DataSnapshot child : parent.getChildren()){
-//                        if("Name".equals(child.getKey())){
-//                            name = child.getValue().toString();
-//                        }
-//                        if("Address".equals(child.getKey())){
-//                            address = child.getValue().toString();
-//                        }
-//                        if("BloodGroup".equals(child.getKey())){
-//                            blood = child.getValue().toString();
-//                        }
-//                    }
-//
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-    }
 }
