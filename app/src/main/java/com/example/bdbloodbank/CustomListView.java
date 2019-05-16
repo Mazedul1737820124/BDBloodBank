@@ -1,6 +1,11 @@
 package com.example.bdbloodbank;
 
 import android.app.Activity;
+import android.text.format.DateFormat;
+
+import java.util.Date;
+
+import static java.lang.StrictMath.abs;
 
 public class CustomListView {
     private String Address;
@@ -52,11 +57,7 @@ public class CustomListView {
     }
 
     public String getEnableSer() {
-        if("true".equals(EnableSer))
-        return "Available";
-        else {
-            return "Hidden";
-        }
+       return EnableSer;
     }
 
     public String getId() {
@@ -64,12 +65,41 @@ public class CustomListView {
     }
 
     public String getLastDonationDate() {
-        if("90".equals(LastDonationDate)){
-            return "Ready to donate";
-        }
-        else {
-            return "Last donation 10 day ago";
-        }
+
+        try {
+            Date d = new Date();
+            CharSequence s = DateFormat.format("yyyyMMdd ", d.getTime());
+            String cDate = s.toString();
+            String dDate = LastDonationDate;
+
+            long currentDate = Integer.parseInt(cDate.substring(0, cDate.length() - 1));
+            long donationDate = Integer.parseInt(dDate);
+            int currentDay = Integer.parseInt(cDate.substring(6, 8));
+            int currentMonth = Integer.parseInt(cDate.substring(4, 6));
+            int donDay = Integer.parseInt(dDate.substring(6, 8));
+            int donMonth = Integer.parseInt(dDate.substring(4, 6));
+
+            if ((currentDay > donDay)) {
+                if (((currentDate - donationDate) - 8800) <= 90) {
+                    return "Ready to donate";
+                }
+                return "Last donation " + ((currentDate - donationDate) - 8800) + " days ago";
+
+            } else if ((currentMonth > donMonth)) {
+                if (((currentDate - donationDate) - 70) <= 90) {
+                    return "Ready to donate";
+                }
+                return "Last donation " + ((currentDate - donationDate) - 70) + " days ago";
+
+            } else {
+                if (abs(currentDate - donationDate) <= 90) {
+                    return "Ready to donate";
+                }
+                return "Last donation " + (currentDate - donationDate) + " days ago";
+
+            }
+        }catch (Exception e){}
+        return "Last donation 20 days ago";
     }
 
     public String getLog() {

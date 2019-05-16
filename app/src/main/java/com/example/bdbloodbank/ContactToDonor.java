@@ -20,8 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import static com.example.bdbloodbank.MyAdapter.contactToDonor;
-import static database.InsertData.primaryKey;
-
 public class ContactToDonor extends AppCompatActivity {
 
     FirebaseDatabase database;

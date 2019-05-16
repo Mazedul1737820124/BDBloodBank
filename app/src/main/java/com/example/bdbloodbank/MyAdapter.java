@@ -4,6 +4,9 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
@@ -40,6 +43,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.dAvailable.setText(profile.get(position).getEnableSer());
         holder.dBlood.setText(profile.get(position).getBloodGroup());
         holder.dAddress.setText(profile.get(position).getDistrict());
+
+        if("Ready to donate".equals(profile.get(position).getLastDonationDate())){
+            holder.dAvailable.setText("Available");
+            holder.dAvailable.setTextColor(Color.rgb(14,211,14));
+        }
+        else {
+            holder.dAvailable.setText("Hidden");
+            holder.dAvailable.setTextColor(Color.BLACK);
+        }
         holder.contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
